@@ -189,7 +189,7 @@ void setup() {
   
   // initialize the communication to PC
   CMD_UART.begin(CMD_BAUDRATE);
-  
+ 
   // attach protocol handler to Rx interrupt
   CMD_UART.attachInterrupt(protocolHandler);
 

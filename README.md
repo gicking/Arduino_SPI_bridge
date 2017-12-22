@@ -1,10 +1,10 @@
 # Overview
 
-_Arduino_SPI_bridge_ is a small Arduino project to configure an Arduino as USB<->SPI gateway. Basically it is remotely controlled via USB and a simple UART protocol (for details see 'protocol.ods'). So far it has only been tested with an Arduino UNO R3, but there should be no major issue on other ATMega boards. However, the ARM-based Arduino boards are not yet supported, since this project requires the [NeoHWSerial](https://github.com/SlashDevin/NeoHWSerial) library, which so far only runs on the older ATMega-based boards. 
+_Arduino_SPI_bridge_ is a small Arduino project to configure an Arduino as USB<->SPI gateway. The main objective for this project was to provide a OS-independent SPI-gateway for the [_stm8gal_](https://github.com/gicking/stm8gal) application. However, since the SPI can be freely configured, it should also work for other SPI slave devices.
 
-To test the functionality, a small Python project is also provided. It is compatible with Windows, MacOS X and Linux, including Raspbian, provided python and pySerial are installed.
+Basically _Arduino_SPI_bridge_  is remotely controlled via USB command using a simple UART protocol (for details see 'protocol.ods'). So far it has only been tested with an Arduino UNO R3, but there should be no major issue porting it to other ATMega boards. However, due to the used [NeoHWSerial](https://github.com/SlashDevin/NeoHWSerial) library, which currently does not support the newer ARM-based Arduinos. 
 
-Note: the main objective for this project was to provide an OS-independent SPI-device for the [_stm8gal_](https://github.com/gicking/stm8gal) application. **Unfortunately the combination of _stm8gal_ and _Arduino_SPI_bridge_ doesn't seem to work, yet**
+To test the functionality, a small Python project is also provided. Provided that Python and PySerial are installed, it should be compatible with Windows, MacOS X and Linux, including Raspbian.
 
 For bug reports or feature requests please send me a note.
 
@@ -44,11 +44,17 @@ An example of protocol and possible error handling is given in 'Arduino_SPI_brid
 
 # Known Issues / Limitations
 
-- the combination of _stm8gal_ and _Arduino_SPI_bridge_ doesn't work yet.
+- limitation to ATMega-based Arduino boards due to the used [NeoHWSerial](https://github.com/SlashDevin/NeoHWSerial) library, which currently does not support ARM-based Arduinos. 
+
 
 ***
 
 # Revision History
+
+v1.0.1 (2017-12-22)
+  - fixed bug in conjunction with stm8gal (see https://github.com/gicking/stm8gal)
+
+----------------
 
 v1.0.0 (2017-12-21)
   - initial release by Georg Icking-Konert under the Apache License 2.0
