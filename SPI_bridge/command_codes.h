@@ -2,8 +2,8 @@
    \file command_codes.h
    
    \author G. Icking-Konert
-   \date 2017-12-15
-   \version 0.1
+   \date 2024-07-07
+   \version 1.2.0
    
    \brief declaration of command and error codes
    
@@ -16,17 +16,18 @@
 #define _CODES_H_
 
 // command codes (PC -> Arduino)
-#define CMD_CONFIG_SPI       0x00     //< configure SPI, e.g. baudrate and poratity
-#define CMD_SET_PIN          0x01     //< set state of pin, e.g chip select or reset
-#define CMD_SEND_RECEIVE     0x02     //< send/receive message via SPI
+#define CMD_SET_PIN          0x00     //< set state of pin, e.g. board reset
+#define CMD_CONFIG_SPI       0x01     //< configure SPI, e.g. CSN, baudrate and polarity
+#define CMD_SEND_RECV_SPI    0x02     //< send/receive message via SPI
 
 // status codes (Arduino -> PC)
-#define PENDING              0x00     //< no command received
-#define SUCCESS              0x01     //< command ok
-#define ERROR_FRAME_LENGTH   0x02     //< zero or loo long frame length
-#define ERROR_CHECKSUM       0x03     //< received and calculated checksums don't match 
-#define ERROR_ILLEGAL_CMD    0x04     //< command unknown
-#define ERROR_ILLEGAL_PARAM  0x05     //< error with command parameters
+#define WAIT_FOR_COMMAND     0x00     //< no command received
+#define COMMAND_PENDING      0x01     //< command received
+#define SUCCESS              0x02     //< command executed ok
+#define ERROR_FRAME_LENGTH   0x03     //< zero or wrong frame length
+#define ERROR_CHECKSUM       0x04     //< received and calculated checksums don't match 
+#define ERROR_ILLEGAL_CMD    0x05     //< command unknown
+#define ERROR_ILLEGAL_PARAM  0x06     //< illegal command parameters
 
 #endif // _CODES_H_
 
