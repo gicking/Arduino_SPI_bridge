@@ -331,7 +331,7 @@ class SPI_Bridge:
 #-------------------------------------------------------------------
 # MODULE TEST
 #-------------------------------------------------------------------
-# only executute this block of code if running this module directly,
+# only execute this block of code if running this module directly,
 # *not* if importing it
 # -see here: http://effbot.org/pyfaq/tutor-what-is-if-name-main-for.htm
 if __name__ == "__main__":
@@ -391,7 +391,7 @@ if __name__ == "__main__":
 
     
   # commandline parameters with defaults
-  parser = argparse.ArgumentParser(description="Fluke 187/189 read-out")
+  parser = argparse.ArgumentParser(description="Arduino SPI Bridge")
   parser.add_argument('-p', '--port',    type=str,   help='port name', required=False, default='/dev/ttyACM0')
   parser.add_argument('-b', '--baud',    type=int,   help='baudrate',  required=False, default=115200)
   args = parser.parse_args()
